@@ -1,0 +1,31 @@
+<!-- <template>
+    <div class="main">
+        <div class="slds-box slds-theme_default sidebar">
+            <lightning-vertical-navigation selected-item="onboardingform" onselect={handleSelect}>
+                <lightning-vertical-navigation-item label="On Boarding Form" name="onboardingform"></lightning-vertical-navigation-item>
+                <lightning-vertical-navigation-item label="Students List" name="studentlist"></lightning-vertical-navigation-item>
+            </lightning-vertical-navigation>
+        </div>
+        <div class="page-wrap">
+            <lightning-card>
+                <lightning-input class="page-wrap" label="Student Name" ></lightning-input>
+                <lightning-input label="Student Name" class="page-wrap" ></lightning-input>
+                <lightning-input label="Student Name" value='student name'></lightning-input>
+            </lightning-card>
+        </div>
+    </div>
+</template> -->
+
+<template>
+    <lightning-card style="width: 320px">
+        <lightning-vertical-navigation selected-item="onboardingform" onselect={handleSelect}>
+            <lightning-vertical-navigation-item label="On Boarding Form" name="onboardingform"></lightning-vertical-navigation-item>
+            <lightning-vertical-navigation-item label="Students List" name="studentlist"></lightning-vertical-navigation-item>
+        </lightning-vertical-navigation>
+    </lightning-card>        
+    <lightning-card style="width: 500px">
+        <lightning-input class="page-wrap" label="Student Name" ></lightning-input>
+        <lightning-input label="Student Name" class="page-wrap" ></lightning-input>
+        <lightning-input label="Student Name" value='student name'></lightning-input>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+main { 
+    width: 800px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 200px;
+    height: 00px;
+    float: left;
+}
+
+.page-wrap  {
+    /* width: 600px; */
+    background: #ffffff;
+}

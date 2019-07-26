@@ -1,0 +1,12 @@
+/* .THIS .slds-form-element__label{
+    display: none;
+    visibility: hidden;
+} */
+
+.THIS .label-hidden > label {
+    display: none;
+}
+
+.THIS .rightMargin {
+    margin-right: 20px;
+}

@@ -1,0 +1,26 @@
+<template>
+    <c-buyer-search></c-buyer-search>
+    <lightning-card>
+        <!-- <div class="wrapper">
+            <section class="content">
+                <div class="columns">
+                    <main class="main" >
+                        <div class="container">
+                            <template for:each={allProperties.data} for:item="property">
+                                <c-property-card key={property.Id}  property={property} > </c-property-card>
+                            </template>
+                        </div>
+                    </main>
+                    <aside class="sidebar-second">
+                        <c-detail product-id={selectedProductId}></c-detail>
+                    </aside>
+                </div>
+            </section>
+        </div> -->
+        <lightning-layout multiple-rows="true" pull-to-boundary="medium" >
+            <template for:each={allProperties.data} for:item="property">
+                <c-property-card key={property.Id}  property={property} > </c-property-card>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>

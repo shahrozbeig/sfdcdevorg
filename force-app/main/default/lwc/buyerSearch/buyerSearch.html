@@ -1,0 +1,54 @@
+<template>
+    <lightning-card >
+        <div class="c-container">
+            <lightning-layout vertical-align="end" >
+                <lightning-layout-item padding="around-small" class="left-align" size="6">
+                    <lightning-input label="Search" value={searchkeyword} onchange={filterSearchItems} ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" class="right-align" size="3">
+                    <lightning-combobox
+                        name="type"
+                        label="Type"
+                        value={typeValue}
+                        placeholder="Select Type"
+                        options={propertyTypeOptions}
+                        onchange={typeChangeHandler} >
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" class="right-align" size="3">
+                    <lightning-combobox
+                        name="subtype"
+                        label="Sub Type"
+                        value={subTypeValue}
+                        placeholder="Select Type"
+                        options={propertySubTypeOptions}
+                        onchange={subTypeChangeHandler} >
+                    </lightning-combobox>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <div if:true={renderSecondRow}>
+            <lightning-layout vertical-align="end" >
+                <lightning-layout-item padding="around-small" class="left-align equalHeight" size="2" >
+                    <lightning-checkbox-group name="Bedrooms"
+                        label="Bedrooms"
+                        options={bedroomOptions}
+                        value={bedroomValue}
+                        onchange={handleBedroomChange}>
+                    </lightning-checkbox-group>
+                    <p>Selected Values are: {selectedBedrooms}</p>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" class="left-align  equalHeight" size="3">
+                    <lightning-checkbox-group name="Construction Status"
+                        label="Construction Status"
+                        options={constructionOptions}
+                        value={constructionValue}
+                        onchange={handleConstructionChange}>
+                    </lightning-checkbox-group>
+                    <p>Selected Values are: {selectedConstructions}</p>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

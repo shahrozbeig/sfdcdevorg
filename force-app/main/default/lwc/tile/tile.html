@@ -1,0 +1,9 @@
+<template>
+    <div class="container">
+        <a onclick={tileClick}>
+            <div class="title">{product.fields.Name.value}</div>
+            <div class="title">{product.fields.MSRP__c.value}</div>
+            <img class="product-img" src={product.fields.Picture_URL__c.value}></img>
+        </a>
+    </div>
+</template>

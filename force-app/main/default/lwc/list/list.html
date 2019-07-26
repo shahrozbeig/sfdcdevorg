@@ -1,0 +1,12 @@
+<template>
+    <lightning-input label="Search" value={searchkeyword} onchange={filterSearchItems} ></lightning-input>
+    <div class="container">
+        <template for:each={filterBikes} for:item="bike">
+            <c-tile 
+                key={bike.fields.Id.value} 
+                product={bike} 
+                ontileclick={handleTileClick}>
+            </c-tile>
+        </template>
+    </div>
+</template>
