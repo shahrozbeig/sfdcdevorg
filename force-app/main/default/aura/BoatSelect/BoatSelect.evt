@@ -1,3 +1,3 @@
-<aura:event type="COMPONENT" description="Event template">
+<aura:event type="COMPONENT" description="Fired when user click on the boat tile">
     <aura:attribute name="boatId" type="Id" />
 </aura:event>

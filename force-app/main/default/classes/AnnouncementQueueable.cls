@@ -3,10 +3,10 @@
  * @description This class posts Chatter Announcements
 **/
 public class AnnouncementQueueable implements Queueable {
-
+    /**
+     * list of announcements to be posted on "Inventory Announcements" chatter group
+    */
     public List<ConnectApi.AnnouncementInput> toPost;
-
-    //ToDo: Modify this class to implement the Queueable interface and call the postAnnouncements method
 
     public void execute(QueueableContext qc) {
         PostAnnouncements(toPost);
@@ -29,7 +29,9 @@ public class AnnouncementQueueable implements Queueable {
             AnnouncementQueueable q = new AnnouncementQueueable();
             q.toPost = announcements;
 
-            //ToDo: Enqueue the above instance of announcementQueueable
+            /**
+             * Enqueueing the above instance of announcementQueueable class
+             */
             System.enqueueJob(q);
         }
     }
