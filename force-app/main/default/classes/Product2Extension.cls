@@ -1,6 +1,4 @@
 public class Product2Extension {
-
-    // public List<SelectOption> familyOptions {get; set;}
     
     public List<ProductWrapper> productsToInsert {get;set;}
 
@@ -12,11 +10,8 @@ public class Product2Extension {
 
     public void AddRows(){
         for ( Integer i=0; i<Constants.DEFAULT_ROWS; i++ ){
-        // for ( Integer i=0; i<1; i++ ){
-            // ProductWrapper productWrap = new ProductWrapper(new Product2());
             productsToInsert.add(new ProductWrapper(new Product2()));
         }
-        // GetInventory();
     }
 
     public List<ChartHelper.ChartData> GetInventory(){
@@ -38,10 +33,10 @@ public class Product2Extension {
                     pbe.PriceBook2Id = Constants.STANDARD_PRICEBOOK_ID;
                     pbeToInsert.add(pbe);
                 } 
-                /* else {
+                else {
                     apexPages.addMessage(new ApexPages.message(ApexPages.Severity.INFO, 'You must fill all the cells'));
                     return null;
-                } */
+                }
             }
             System.debug('productsToBeInserted: ' + productsToBeInserted);
             insert productsToBeInserted;
@@ -49,10 +44,9 @@ public class Product2Extension {
                 pbeToInsert[i].Product2Id = productsToBeInserted[i].Id;
             }
             insert pbeToInsert;
-            //If successful clear the list and display an informational message
             apexPages.addMessage(new ApexPages.message(ApexPages.Severity.INFO,productsToInsert.size()+' Inserted'));
-            productsToInsert.clear();   //Do not remove
-            addRows();  //Do not remove
+            productsToInsert.clear();   
+            addRows();  
         } catch (Exception e){
             Database.rollback(sp);
             apexPages.addMessage(new ApexPages.message(ApexPages.Severity.ERROR, Constants.ERROR_MESSAGE));

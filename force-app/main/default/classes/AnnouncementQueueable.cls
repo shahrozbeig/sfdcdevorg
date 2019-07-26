@@ -1,6 +1,6 @@
 /**
  * @name AnnouncementQueueable
- * @description This class posts Chatter Announcements
+ * @description This class posts Chatter Announcements using Queueuable interface
 **/
 public class AnnouncementQueueable implements Queueable {
     /**
@@ -14,25 +14,22 @@ public class AnnouncementQueueable implements Queueable {
 
     /**
      * @name postAnnouncements
-     * @description This method is provided for you to facilitate the Super Badge
+     * @description This method calls the ConnectApi's postAnnoucement method to post to the chatter group
+     * it also check for the DML/Posts limits available, if yes then post otherwise it request itself to post
     **/
     public static void PostAnnouncements(List<ConnectApi.AnnouncementInput> announcements){
         while ( announcements.size() > 0 ){
             if ( Limits.getDMLStatements() < Limits.getLimitDMLStatements() && !test.isRunningTest() ){
                 ConnectApi.AnnouncementInput a = announcements.remove(0);
                 ConnectApi.Announcements.postAnnouncement('Internal', a);
-            } else {
-                break;
+            } else if ( announcements.size() > 0 && !test.isRunningTest() ) {
+                AnnouncementQueueable q = new AnnouncementQueueable();
+                q.toPost = announcements;
+                /**
+                 * Enqueueing the above instance of announcementQueueable class
+                 */
+                System.enqueueJob(q);
             }
-        }
-        if ( announcements.size() > 0 && !test.isRunningTest() ){
-            AnnouncementQueueable q = new AnnouncementQueueable();
-            q.toPost = announcements;
-
-            /**
-             * Enqueueing the above instance of announcementQueueable class
-             */
-            System.enqueueJob(q);
         }
     }
 

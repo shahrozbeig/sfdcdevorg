@@ -14,7 +14,6 @@ public without sharing class ChartHelper {
         for (AggregateResult aggResult : groupedFamilyProduct) {
             chartDataList.add(new ChartData((String)aggResult.get('Family'), Integer.valueOf(aggResult.get('expr0'))));
         }
-        System.debug('chartDataList: ' + chartDataList);
         return chartDataList;
     }
 

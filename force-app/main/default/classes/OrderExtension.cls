@@ -21,27 +21,8 @@ public class OrderExtension {
             orderRecord = queryOrderRecord(orderRecord.Id);
             pbesFromStandardSetController();
             updatePieChart();
-            extractOrderItemsFromPbe();
-            // filteredOrderItemList = orderItems.getRecord();
-            // for (OrderItem orderI : (List<OrderItem>) standardSetController.getRecords()) {
-            //     filteredOrderItemList.add(orderI);
-            // }
-            // orderItemList = filteredOrderItemList;
-            System.debug('Constructor it is');
-            // total = orderRecord.TotalAmount;
-            // total = 0;
-            
-            /* for (OrderItem oi : orderRecord.OrderItems) {
-                orderItemMap.put(oi.Product2Id, oi);
-                if(oi.Quantity > 0) {
-                    if(null == pieData) {
-                        pieData = new List<ChartHelper.ChartData>();
-                    }
-                    pieData.add(new chartHelper.ChartData(oi.Product2.Name, oi.Quantity * oi.UnitPrice));
-                    total += oi.UnitPrice * oi.Quantity;
-                }
-            } */
-            
+            extractOrderItemsFromPbe();        
+            System.debug('Constructor it is');            
         }
         pbesFromStandardSetController();
     }
@@ -95,20 +76,11 @@ public class OrderExtension {
         total = totalOrderAmount;
     }
 
-    //ToDo: Implement your own method to populate orderItemList
-    //  that you will call after pagination and/or family selection
-
-    
-
-
     /**
      * @name OnFieldChange
      * @description
     **/
     public void OnFieldChange(){
-        //ToDo: Implement logic to store the values changed on the page
-        //      and populate pieData
-        //      and populate total
         updatePieChart();
     }
 
@@ -117,16 +89,6 @@ public class OrderExtension {
      * @description
     **/
     public void SelectFamily(){
-        /* List<OrderItem> newOrderItemList = new List<OrderItem>();
-        //ToDo: Implement logic to filter based on the selected product family
-        for (OrderItem ordItem : orderItemList) {
-            if(ordItem.Product2.Family == selectedFamily) {
-                newOrderItemList.add(ordItem);
-            } else if (selectedFamily == Constants.SELECT_ONE) {
-                newOrderItemList = orderItemList;
-            }
-        }
-        filteredOrderItemList = newOrderItemList; */
         pbesFromStandardSetController();
         extractOrderItemsFromPbe();
     }
@@ -136,7 +98,6 @@ public class OrderExtension {
      * @description
     **/
     public PageReference Save(){
-        //ToDo: Implement logic to save the Order and populated OrderItems
         Savepoint sp = Database.setSavepoint();
         try {
             if(orderRecord.Pricebook2Id == null) {
@@ -207,8 +168,8 @@ public class OrderExtension {
      * @description
     **/
     public Boolean GetHasPrevious(){
-        // return GetPageNumber()>1;
-        return standardSetController.getHasPrevious();
+        return GetPageNumber()>1;
+        // return standardSetController.getHasPrevious();
     }
 
     /**
@@ -216,8 +177,8 @@ public class OrderExtension {
      * @description
     **/
     public Boolean GetHasNext(){
-        // return GetPageNumber()>0 && GetPageNumber()<GetTotalPages();
-        return standardSetController.getHasNext();
+        return GetPageNumber()>0 && GetPageNumber()<GetTotalPages();
+        // return standardSetController.getHasNext();
     }
 
     /**
@@ -225,8 +186,8 @@ public class OrderExtension {
      * @description
     **/
     public Integer GetTotalPages(){
-        // return (Integer)Math.ceil(orderRecord.OrderItems.size() / (Decimal)Constants.DEFAULT_ROWS);
-        return (Integer)Math.ceil(standardSetController.getResultSize() / (Decimal)Constants.DEFAULT_ROWS);
+        return (Integer)Math.ceil(orderRecord.OrderItems.size() / (Decimal)Constants.DEFAULT_ROWS);
+        // return (Integer)Math.ceil(standardSetController.getResultSize() / (Decimal)Constants.DEFAULT_ROWS);
     }
 
     /**
