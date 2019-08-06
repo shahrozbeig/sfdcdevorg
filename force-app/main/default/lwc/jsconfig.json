@@ -6,6 +6,30 @@
             "c/accountMap": [
                 "accountMap/accountMap.js"
             ],
+            "c/apexImperativeMethod": [
+                "apexImperativeMethod/apexImperativeMethod.js"
+            ],
+            "c/apexImperativeMethodWithComplexParams": [
+                "apexImperativeMethodWithComplexParams/apexImperativeMethodWithComplexParams.js"
+            ],
+            "c/apexImperativeMethodWithParams": [
+                "apexImperativeMethodWithParams/apexImperativeMethodWithParams.js"
+            ],
+            "c/apexStaticSchema": [
+                "apexStaticSchema/apexStaticSchema.js"
+            ],
+            "c/apexWireMethodToFunction": [
+                "apexWireMethodToFunction/apexWireMethodToFunction.js"
+            ],
+            "c/apexWireMethodToProperty": [
+                "apexWireMethodToProperty/apexWireMethodToProperty.js"
+            ],
+            "c/apexWireMethodWithComplexParams": [
+                "apexWireMethodWithComplexParams/apexWireMethodWithComplexParams.js"
+            ],
+            "c/apexWireMethodWithParams": [
+                "apexWireMethodWithParams/apexWireMethodWithParams.js"
+            ],
             "c/bearList": [
                 "bearList/bearList.js"
             ],
@@ -35,6 +59,9 @@
             ],
             "c/detail": [
                 "detail/detail.js"
+            ],
+            "c/errorPanel": [
+                "errorPanel/errorPanel.js"
             ],
             "c/helloBinding": [
                 "helloBinding/helloBinding.js"
@@ -98,6 +125,9 @@
             ],
             "c/tile": [
                 "tile/tile.js"
+            ],
+            "c/viewSource": [
+                "viewSource/viewSource.js"
             ],
             "c/Leaflet": [
                 "../staticresources/Leaflet/Leaflet.js"

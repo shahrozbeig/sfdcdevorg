@@ -228,5 +228,15 @@ public class OrderExtension {
         ];
     }
 
+    public static void stringToDate(String strV) {
+        if (strV != null){           
+            if (strV.StartsWith('Date(')){             
+                string jsonDateTime = '\'\\' + strV.Substring(0, strV.Length() - 1) + '\\\''; // recreate the JSON object             
+                Datetime newDate =  (DateTime)JSON.deserialize(JSON.serialize(jsonDateTime), DateTime.class);
+                System.debug('newDate: ' + newDate);
+            }
+        } 
+    }
+
 }
 

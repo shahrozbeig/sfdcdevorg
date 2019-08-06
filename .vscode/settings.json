@@ -5,7 +5,7 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "eslint.nodePath": "c:\\Users\\Shahroz.Beg\\.vscode\\extensions\\salesforce.salesforcedx-vscode-lwc-46.6.0\\node_modules",
+  "eslint.nodePath": "c:\\Users\\Shahroz.Beg\\.vscode\\extensions\\salesforce.salesforcedx-vscode-lwc-46.8.0\\node_modules",
   "salesforcedx-vscode-core.show-cli-success-msg": false,
   "editor.fontSize": 15
 }
