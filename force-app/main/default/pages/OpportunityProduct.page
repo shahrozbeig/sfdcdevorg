@@ -1,0 +1,51 @@
+<apex:page standardController="Opportunity" extensions="OpportunityProductEntryExtension" doctype="html-5.0">
+    <apex:sectionHeader Title="Online {!$ObjectType.Product2.LabelPlural} Inventory" />
+    <apex:messages style="color:red" />
+    
+
+    <apex:form >
+
+        <!-- <apex:actionFunction name="callAction" action="{!callLookup}" /> -->
+
+        <apex:pageBlock title="Main Page Block">
+
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton action="{!addRow}" value="Add Order" />
+            </apex:pageBlockButtons>
+            <apex:outputPanel id="mainBlock">
+                <apex:variable value="{!0}" var="rowNum" />
+
+                <apex:repeat value="{!purchaseOrderWrapperList}" var="orderWrap" id="theRepeat">
+                    <apex:variable var="rowNum" value="{!rowNum + 1}" />
+
+                    <apex:pageBlock title="Order Name {!rowNum}" id="newPb2">
+                        <apex:commandLink value="Add Product" style="float:right;" action="{!addProduct}">
+                            <apex:param value="{!rowNum}" name="rowToRemove" assignTo="{!rowToRemove}" />
+                        </apex:commandLink>
+
+                        <apex:pageBlockTable value="{!orderWrap.orderItemList}" var="orderItem">
+                            <!-- <apex:column headerValue="{!$ObjectType.PurchaseOrderLineItem__c.Fields.PurchaseOrder__c.Label}">
+                            <apex:inputField value="{!orderItem.purchaseOrderLineItem.PurchaseOrder__c}" />
+                        </apex:column> -->
+                            <apex:column headerValue="{!$ObjectType.PurchaseOrderLineItem__c.Fields.Quantity__c.Label}">
+                                <apex:inputField value="{!orderItem.purchaseOrderLineItem.Quantity__c}" />
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.PurchaseOrderLineItem__c.Fields.UnitPrice__c.Label}">
+                                <apex:inputField value="{!orderItem.purchaseOrderLineItem.UnitPrice__c}" />
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.PurchaseOrderLineItem__c.Fields.SubTotal__c.Label}">
+                                <apex:inputField value="{!orderItem.purchaseOrderLineItem.SubTotal__c}" />
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlock>
+                </apex:repeat>
+
+            </apex:outputPanel>
+        </apex:pageBlock>
+
+
+
+    </apex:form>
+
+
+</apex:page>
