@@ -5,7 +5,10 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "eslint.nodePath": "c:\\Users\\Shahroz.Beg\\.vscode\\extensions\\salesforce.salesforcedx-vscode-lwc-46.8.0\\node_modules",
+  "eslint.nodePath": "c:\\Users\\Shahroz.Beg\\.vscode\\extensions\\salesforce.salesforcedx-vscode-lwc-46.11.0\\node_modules",
   "salesforcedx-vscode-core.show-cli-success-msg": false,
-  "editor.fontSize": 15
+  "editor.fontSize": 15,
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "",
+  "java.codeGeneration.generateComments": true
 }

@@ -1,5 +1,6 @@
 public with sharing class BillingCalloutService {
     Map<Id,Project__c> mapOfProjects;
+    // List<Project__c> projectsToUpdate;
     public static void callBillingService(List<Project__c> projectsList) {
         for (Project__c project : projectsList) {
             if(project.Status__c == 'Billable') {

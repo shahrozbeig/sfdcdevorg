@@ -1,4 +1,6 @@
 public class Product2Extension {
+
+    // public List<SelectOption> familyOptions {get; set;}
     
     public List<ProductWrapper> productsToInsert {get;set;}
 
@@ -44,6 +46,7 @@ public class Product2Extension {
                 pbeToInsert[i].Product2Id = productsToBeInserted[i].Id;
             }
             insert pbeToInsert;
+            // If successful clear the list and display an informational message
             apexPages.addMessage(new ApexPages.message(ApexPages.Severity.INFO,productsToInsert.size()+' Inserted'));
             productsToInsert.clear();   
             addRows();  
